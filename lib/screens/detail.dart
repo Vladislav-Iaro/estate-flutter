@@ -11,6 +11,7 @@ class _DetailScreenState extends State<DetailScreen> {
   void onBack() => Navigator.of(context).pop();
   void onFav() => {};
   int _currentImageIndex = 0;
+  int roomType = -1;
   List<String> images = ["home1", "home2", "home3"];
 
   List<Widget> _buildImages() {
@@ -57,6 +58,42 @@ class _DetailScreenState extends State<DetailScreen> {
             shape: BoxShape.circle,
             color: white,
           ),
+        ),
+      ),
+    );
+  }
+
+  Widget _buildRoomTypeButton(index, icon, text) {
+    return GestureDetector(
+      onTap: () => setState(() {
+        roomType = index;
+      }),
+      child: Container(
+        width: 110,
+        decoration: BoxDecoration(
+          border: Border.all(color: grey),
+          borderRadius: BorderRadius.all(
+            Radius.circular(10),
+          ),
+          color: roomType != index ? white : primaryColor,
+        ),
+        padding: EdgeInsets.symmetric(vertical: 12, horizontal: 10),
+        child: Column(
+          children: [
+            imageColorIcon(
+              size: 40,
+              icon: icon,
+              color: roomType == index ? white : primaryColor,
+            ),
+            vSBox,
+            Text(
+              text,
+              style: TextStyle(
+                fontWeight: FontWeight.bold,
+                color: roomType == index ? white : primaryColor,
+              ),
+            )
+          ],
         ),
       ),
     );
@@ -122,8 +159,7 @@ class _DetailScreenState extends State<DetailScreen> {
                             Text('Age'),
                           ],
                         ),
-                        vSBox,
-                        Row(
+                        /* Row(
                           children: [
                             imageIcon(icon: 'home'),
                             hSBox,
@@ -145,7 +181,7 @@ class _DetailScreenState extends State<DetailScreen> {
                             hSBox,
                             Text('Parking'),
                           ],
-                        )
+                        ) */
                       ],
                     ),
                   ),
@@ -173,8 +209,7 @@ class _DetailScreenState extends State<DetailScreen> {
                             Text('Street Size'),
                           ],
                         ),
-                        vSBox,
-                        Row(
+                        /* Row(
                           children: [
                             imageIcon(icon: 'fire'),
                             hSBox,
@@ -188,14 +223,13 @@ class _DetailScreenState extends State<DetailScreen> {
                             hSBox,
                             Text('Basement'),
                           ],
-                        ),
+                        ), */
                       ],
                     ),
                   ),
                 ],
               ),
             ),
-            vSBox,
             divider,
             paddingBox(
               child: Column(
@@ -255,6 +289,36 @@ class _DetailScreenState extends State<DetailScreen> {
                         ),
                       )
                     ],
+                  ),
+                ],
+              ),
+            ),
+            divider,
+            paddingBox(
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Text(
+                    "Features",
+                    style: TextStyle(fontWeight: FontWeight.bold),
+                  ),
+                  vSBox,
+                  SingleChildScrollView(
+                    scrollDirection: Axis.horizontal,
+                    child: Row(
+                      children: [
+                        _buildRoomTypeButton(0, 'maid-room', 'Maid\'s Room'),
+                        hSBox,
+                        _buildRoomTypeButton(1, 'fireplace', 'Fire Place'),
+                        hSBox,
+                        _buildRoomTypeButton(2, 'yard', 'Yard'),
+                        hSBox,
+                        _buildRoomTypeButton(3, 'basement', 'Basement'),
+                        hSBox,
+                        _buildRoomTypeButton(4, 'parking', 'Parking'),
+                        hSBox,
+                      ],
+                    ),
                   ),
                 ],
               ),

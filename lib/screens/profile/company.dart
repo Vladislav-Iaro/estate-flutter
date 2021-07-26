@@ -140,19 +140,27 @@ class _CompanyDetailScreenState extends State<CompanyDetailScreen> {
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
           SizedBox(
-            width: 100,
+            width: 90,
             child: OutlineButtonExt.iconButton(
               text: 'Text',
               icon: Icons.sms_outlined,
               onPressed: () => {},
             ),
           ),
-          hLgSBox,
+          hSBox,
           SizedBox(
-            width: 100,
+            width: 90,
             child: OutlineButtonExt.iconButton(
               text: 'Call',
               icon: Icons.call,
+              onPressed: () => {},
+            ),
+          ),
+          hSBox,
+          SizedBox(
+            width: 90,
+            child: OutlineButtonExt.imageButton(
+              image: 'whatsapp',
               onPressed: () => {},
             ),
           ),

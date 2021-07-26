@@ -13,6 +13,7 @@ dependencies:
   animated_splash_screen: ^1.1.0
   google_maps_flutter: ^2.0.2  
   carousel_slider: ^4.0.0  
+  flutter_svg: ^0.22.0
 
 dev_dependencies:
   flutter_test:

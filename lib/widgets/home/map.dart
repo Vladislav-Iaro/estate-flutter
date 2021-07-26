@@ -80,6 +80,7 @@ class _MapScreenState extends State<EstateMap> {
       onMapCreated: (GoogleMapController controller) {
         _controller.complete(controller);
       },
+      zoomControlsEnabled: false
     );
   }
 }

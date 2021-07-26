@@ -173,6 +173,12 @@ class _CreateOfferScreenState extends State<CreateOfferScreen> {
             paddingHBox(
               child: _buildSelectors(),
             ),
+            divider,
+            _buildNearByWidget(),
+            divider,
+            paddingBox(
+              child: _buildDescriptionWidget(),
+            ),
             paddingBox(
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
@@ -184,15 +190,9 @@ class _CreateOfferScreenState extends State<CreateOfferScreen> {
                     child: restBuilder(),
                   ),
                   vSBox,
-                  btnViewMore(),
+                  // btnViewMore(),
                 ],
               ),
-            ),
-            divider,
-            _buildNearByWidget(),
-            divider,
-            paddingBox(
-              child: _buildDescriptionWidget(),
             ),
           ],
         ),

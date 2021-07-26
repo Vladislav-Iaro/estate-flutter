@@ -48,18 +48,21 @@ class _MessagesScreenState extends State<MessagesScreen> {
               online: message.online,
             ),
             hMdSBox,
-            Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Row(
-                  children: [
-                    boldText(message.name, size: 16),
-                    greyText(message.date)
-                  ],
-                ),
-                vSBox,
-                greyText(message.msg)
-              ],
+            Expanded(
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      boldText(message.name, size: 16),
+                      greyText(message.date)
+                    ],
+                  ),
+                  vSBox,
+                  greyText(message.msg)
+                ],
+              ),
             ),
           ],
         ),

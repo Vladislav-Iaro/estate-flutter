@@ -46,60 +46,62 @@ class _CreateAccountScreenState extends State<CreateAccountScreen> {
       title: 'Create an account',
       child: Container(
         child: paddingBox(
-          child: /* SingleChildScrollView(
-            child: */
-              Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Center(
-                child: SizedBox(
-                  width: 90,
-                  height: 90,
-                  child: FloatingActionButton(
-                    backgroundColor: white,
-                    onPressed: () => {},
-                    child: Icon(Icons.camera_alt_rounded, color: grey),
+          child: SingleChildScrollView(
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Center(
+                  child: SizedBox(
+                    width: 90,
+                    height: 90,
+                    child: FloatingActionButton(
+                      backgroundColor: white,
+                      onPressed: () => {},
+                      child: Icon(Icons.camera_alt_rounded, color: grey),
+                    ),
                   ),
                 ),
-              ),
-              vSBox,
-              TextFieldExt.builder(
-                  hint: 'First Name', onChanged: firstNameChanged),
-              vSBox,
-              TextFieldExt.builder(
-                  hint: 'Last Name', onChanged: lastNameChanged),
-              vSBox,
-              Row(
-                children: [
-                  Expanded(
-                    child: Dropdown.builder(
-                      hint: 'Position',
-                      onChanged: positionChanged,
-                      items: ["type1", "type2", "type3"],
+                vSBox,
+                TextFieldExt.builder(
+                    hint: 'First Name', onChanged: firstNameChanged),
+                vSBox,
+                TextFieldExt.builder(
+                    hint: 'Last Name', onChanged: lastNameChanged),
+                vSBox,
+                Row(
+                  children: [
+                    Expanded(
+                      child: Dropdown.builder(
+                        hint: 'Position',
+                        onChanged: positionChanged,
+                        items: ["type1", "type2", "type3"],
+                      ),
                     ),
-                  ),
-                ],
-              ),
-              vSBox,
-              _buildDescriptionWidget(),
-              vSBox,
-              Row(
-                children: [
-                  Expanded(
-                    child: ButtonExtension.builder(
-                      active: true,
-                      onPressed: () =>
-                          Navigator.of(context).pushNamed('/account/edit'),
-                      text: "Sign Up",
+                  ],
+                ),
+                vSBox,
+                _buildDescriptionWidget(),
+                vSBox,
+                TextFieldExt.builder(
+                    hint: 'Phone Number', onChanged: lastNameChanged),
+                vSBox,
+                Row(
+                  children: [
+                    Expanded(
+                      child: ButtonExtension.builder(
+                        active: true,
+                        onPressed: () =>
+                            Navigator.of(context).pushNamed('/account/edit'),
+                        text: "Sign Up",
+                      ),
                     ),
-                  ),
-                ],
-              ),
-            ],
+                  ],
+                ),
+              ],
+            ),
           ),
         ),
       ),
-      /* ), */
     );
   }
 }

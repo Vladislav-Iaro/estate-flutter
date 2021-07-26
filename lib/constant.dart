@@ -111,6 +111,16 @@ Widget imageIcon({icon, double size = 30.0}) => SizedBox(
       ),
     );
 
+Widget imageColorIcon({icon, double size = 30.0, color}) => SizedBox(
+      width: size,
+      height: size,
+      child: Image(
+        image: AssetImage("assets/icons/$icon.png"),
+        color: color,
+        fit: BoxFit.contain,
+      ),
+    );
+
 Widget headerButton({
   tag,
   icon,

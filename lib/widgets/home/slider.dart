@@ -23,7 +23,7 @@ class _EstateSliderState extends State<EstateSlider> {
     return GestureDetector(
       onTap: () => Navigator.pushNamed(context, '/detail'),
       child: Container(
-        padding: EdgeInsets.symmetric(horizontal: 16, vertical: 24),
+        padding: EdgeInsets.only(left: 16, right: 16, top: 24),
         decoration: BoxDecoration(
           boxShadow: [
             BoxShadow(
@@ -123,12 +123,16 @@ class _EstateSliderState extends State<EstateSlider> {
   }
 
   Widget build(BuildContext context) {
+    final width = getWindowWidth(context) * .86;
+    final height = 166;
+
     return Container(
-      margin: EdgeInsets.only(bottom: 24),
+      margin: EdgeInsets.only(bottom: 16),
       child: CarouselSlider(
         options: CarouselOptions(
           viewportFraction: .86,
           enlargeCenterPage: true,
+          aspectRatio: width / height,
           initialPage: _currentIndex,
           enableInfiniteScroll: true,
           reverse: false,

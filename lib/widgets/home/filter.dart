@@ -8,7 +8,7 @@ class EstateFilter extends StatefulWidget {
 }
 
 class _EstateFilterState extends State<EstateFilter> {
-  bool isCommercial = false;
+  bool isCommercial;
   bool isBuy;
   BuildingType buildingType = BuildingType.none;
   RentFrequency rentFrequency = RentFrequency.none;
@@ -22,7 +22,7 @@ class _EstateFilterState extends State<EstateFilter> {
   }
 
   ElevatedButton residentialButton() => ButtonExtension.builder(
-        active: !isCommercial,
+        active: isCommercial != null && !isCommercial,
         onPressed: () => setState(() {
           isCommercial = false;
         }),
@@ -30,7 +30,7 @@ class _EstateFilterState extends State<EstateFilter> {
       );
 
   ElevatedButton commercialButton() => ButtonExtension.builder(
-        active: isCommercial,
+        active: isCommercial != null && isCommercial,
         onPressed: () => setState(() {
           isCommercial = true;
         }),
@@ -433,9 +433,9 @@ class _EstateFilterState extends State<EstateFilter> {
       },
       child: Container(
         width: getWindowWidth(context),
-        height: minimized
-            ? getWindowHeight(context) * .3
-            : getWindowHeight(context),
+        // height: minimized
+        //     ? getWindowHeight(context) * .3
+        //     : getWindowHeight(context),
         decoration: BoxDecoration(
           color: Colors.white,
           borderRadius: BorderRadius.only(
@@ -443,17 +443,24 @@ class _EstateFilterState extends State<EstateFilter> {
             topRight: Radius.circular(20),
           ),
         ),
-        padding: EdgeInsets.only(top: 40),
+        padding: EdgeInsets.only(top: 20),
         child: SingleChildScrollView(
           physics: BouncingScrollPhysics(),
           child: Column(
             children: [
               filterType(),
               divider,
-              filterBuyOrRent(),
+              isCommercial != null ? filterBuyOrRent() : SizedBox(),
               divider,
-              filterBuildingType(),
-              minimized ? SizedBox() : moreFilterOption(),
+              isCommercial != null && isBuy != null
+                  ? filterBuildingType()
+                  : SizedBox(),
+              (isCommercial != null &&
+                          isBuy != null &&
+                          buildingType != BuildingType.none) ||
+                      minimized
+                  ? moreFilterOption()
+                  : SizedBox(),
             ],
           ),
         ),

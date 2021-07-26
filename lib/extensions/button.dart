@@ -64,6 +64,28 @@ extension OutlineButtonExt on OutlinedButton {
           ),
         ),
       );
+
+  static OutlinedButton imageButton({onPressed, image}) => OutlinedButton(
+        style: OutlinedButton.styleFrom(
+          side: BorderSide(color: Colors.black12),
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(8.0),
+          ),
+        ),
+        onPressed: onPressed,
+        child: Padding(
+          padding: EdgeInsets.symmetric(vertical: 16),
+          child: Column(
+            children: [
+              Image(
+                  width: 40,
+                  height: 40,
+                  image: getIcon(image),
+                  fit: BoxFit.cover)
+            ],
+          ),
+        ),
+      );
 }
 
 extension Dropdown on DropdownButton {

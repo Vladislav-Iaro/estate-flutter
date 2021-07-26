@@ -24,7 +24,7 @@ class _HeaderState extends State<Header> {
 
   Widget filterModeButton() => headerButton(
         tag: 'filter',
-        icon: Icons.filter_list_alt,
+        icon: Icons.filter_alt_outlined,
         action: () => {},
       );
 

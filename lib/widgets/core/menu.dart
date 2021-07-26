@@ -9,6 +9,7 @@ class Menu extends StatelessWidget {
     MenuItem(icon: "bed", text: "Profile", link: "/profiles"),
     MenuItem(icon: "bed", text: "New Development", link: "/development"),
     MenuItem(icon: "bed", text: "My offers", link: "/offers"),
+    MenuItem(icon: "bed", text: "New Property", link: "/offers"),
   ];
 
   final MenuItem settingItem =
